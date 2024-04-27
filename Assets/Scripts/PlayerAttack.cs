@@ -3,6 +3,10 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private float attackCooldown;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private GameObject[] swordwaves;
+
+
     private Animator anim;
     private PlayerMovement playerMovement;
     private float cooldownTimer = Mathf.Infinity;
@@ -25,5 +29,23 @@ public class PlayerAttack : MonoBehaviour
     {
         anim.SetTrigger("attack");
         cooldownTimer = 0;
+
+
+
+        //pool swordwaves
+        swordwaves[FindSwordwave()].transform.position = firePoint.position;
+        swordwaves[FindSwordwave()].GetComponent<Projectile>().SetDirection(Mathf.Sign(transform.localScale.x));
+    }
+
+    private int FindSwordwave()
+    {
+        for (int i = 0; i < swordwaves.Length; i++) 
+        {
+            if (!swordwaves[i].activeInHierarchy)
+                return i;
+        
+        }
+        return  0;
+
     }
 }
