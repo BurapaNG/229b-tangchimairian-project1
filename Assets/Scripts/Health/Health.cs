@@ -27,6 +27,7 @@ public class Health : MonoBehaviour
     {
 
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, staringHealth);
+
         if (currentHealth > 0) 
         {
             anim.SetTrigger("hurt");
@@ -38,7 +39,17 @@ public class Health : MonoBehaviour
             if (!dead)
             {
                 anim.SetTrigger("die");
-                GetComponent<PlayerMovement>().enabled = false;
+
+                //player
+                if(GetComponent<PlayerMovement>() != null)
+                    GetComponent<PlayerMovement>().enabled = false;
+
+                //enemy
+                if (GetComponentInParent<EnemyPatrol>() != null)
+                    GetComponentInParent<EnemyPatrol>().enabled = false;
+
+                if(GetComponent<EnemyMelee>() != null)
+                    GetComponent<EnemyMelee>().enabled = false;
                 dead = true;
 
             }
