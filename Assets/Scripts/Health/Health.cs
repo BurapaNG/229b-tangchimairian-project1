@@ -16,6 +16,10 @@ public class Health : MonoBehaviour
     [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spriteRend;
 
+    [Header("Components")]
+    [SerializeField] private Behaviour[] components;
+    private bool invuInerable;
+
 
     private void Awake()
     {
@@ -38,20 +42,13 @@ public class Health : MonoBehaviour
         {
             if (!dead)
             {
+                foreach (Behaviour component in components)
+                    component.enabled = false;
+
+                anim.SetBool("grounded", true);
                 anim.SetTrigger("die");
-
-                //player
-                if(GetComponent<PlayerMovement>() != null)
-                    GetComponent<PlayerMovement>().enabled = false;
-
-                //enemy
-                if (GetComponentInParent<EnemyPatrol>() != null)
-                    GetComponentInParent<EnemyPatrol>().enabled = false;
-
-                if(GetComponent<EnemyMelee>() != null)
-                    GetComponent<EnemyMelee>().enabled = false;
                 dead = true;
-
+                
             }
            
 
@@ -60,6 +57,18 @@ public class Health : MonoBehaviour
     public void AddHealth(float _value)
     {
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, staringHealth);
+    }
+
+    public void Respawn()
+    {
+        dead = false;
+        AddHealth(staringHealth);
+        anim.ResetTrigger("die");
+        anim.Play("Idle");
+        StartCoroutine(Invunerability());
+        foreach (Behaviour component in components)
+            component.enabled = true;
+
     }
     private IEnumerator Invunerability()
     {
