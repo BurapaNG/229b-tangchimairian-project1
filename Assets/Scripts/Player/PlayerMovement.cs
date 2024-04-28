@@ -1,5 +1,7 @@
 ﻿
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D boxCollider;
     private float wallJumpCooldown;
     private float horizontalInput;
+
+    
     
 
     private void Awake()
@@ -95,5 +99,11 @@ public class PlayerMovement : MonoBehaviour
     {
         return horizontalInput == 0 && isGrounded() && !onWall();
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Win") 
+        {
+            SceneManager.LoadScene(2);
+        }
+    }
 }
