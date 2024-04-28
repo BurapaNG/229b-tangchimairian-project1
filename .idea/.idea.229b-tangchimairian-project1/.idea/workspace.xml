@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a4906a9c-8250-4a8a-a98e-19f5585933b1" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.229b-tangchimairian-project1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.229b-tangchimairian-project1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PrefabPUI.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PrefabPUI/Fullet.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/PrefabPUI/Fullet.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Pixel Adventure 1/Assets/Terrain/Terrain (16x16) 1.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Sprites/Pixel Adventure 1/Assets/Terrain/Terrain (16x16) 1.png.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +105,7 @@
       <workItem from="1714252382737" duration="2000" />
       <workItem from="1714268956246" duration="2000" />
       <workItem from="1714278724517" duration="3000" />
-      <workItem from="1714310852227" duration="2388000" />
+      <workItem from="1714310852227" duration="3799000" />
     </task>
     <servers />
   </component>
